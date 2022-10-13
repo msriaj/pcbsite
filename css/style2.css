@@ -1,0 +1,181 @@
+.lightbox-container,
+.lightbox-container-last,
+.lightbox-btn,
+.lightbox-btn-last,
+.lightbox-image-wrapper,
+.lightbox-image-wrapper-last,
+.lightbox-image,
+.lightbox-image-last {
+  transition: all 0.4s ease-in-out;
+}
+.lightbox-enabled,
+.lightbox-enabled-last {
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.lightbox-container,
+.lightbox-container-last {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lightbox-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox-container-last.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox-image-wrapper,
+.lightbox-image-wrapper-last {
+  display: flex;
+  transform: scale(0);
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+}
+.lightbox-container.active .lightbox-image-wrapper {
+  transform: scale(1);
+}
+.lightbox-container-last.active .lightbox-image-wrapper-last {
+  transform: scale(1);
+}
+.lightbox-btn,
+.lightbox-btn-last,
+#close {
+  color: white;
+  z-index: 9999999;
+  cursor: pointer;
+  position: absolute;
+  font-family: "Material Icons" !important;
+  font-size: 50px;
+}
+
+.lightbox-btn:focus {
+  outline: none;
+}
+.lightbox-btn-last {
+  outline: none;
+}
+
+.left {
+  left: 10%;
+}
+.right {
+  right: 10%;
+}
+.left2 {
+  left: 0%;
+}
+.right2 {
+  right: 0%;
+}
+#close,
+#close-last {
+  top: -8%;
+  right: 11%;
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  border-radius: 50%;
+}
+#close-last {
+  position: absolute;
+  right: -25%;
+  cursor: pointer;
+}
+.lightbox-image,
+.lightbox-image-last {
+  width: 70%;
+  -webkit-box-shadow: 5px 5px 20px 2px rgba(0, 0, 0, 0.19);
+  box-shadow: 5px 5px 20px 2px rgba(0, 0, 0, 0.19);
+  max-height: 95vh;
+  object-fit: cover;
+}
+.lightbox-image-last {
+  /* width: 100%; */
+  height: 80vh;
+  /* max-width: 550px; */
+  width: 330px;
+}
+
+@keyframes slideleft {
+  33% {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  66% {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+}
+
+.slideleft {
+  animation-name: slideleft;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  transition: 0.5s ease-in-out;
+}
+@keyframes slideright {
+  33% {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  66% {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+}
+
+.slideright {
+  animation-name: slideright;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  transition: 0.5s ease-in-out;
+}
+@media (max-width: 992px) {
+  #close,
+  #close-last {
+    width: 20px;
+    height: 20px;
+  }
+  .lightbox-image-last {
+    height: 70vh;
+    width: 210px;
+  }
+}
+@media (max-width: 575.98px) {
+  #close,
+  #close-last {
+    width: 15px;
+    height: 15px;
+    right: -3%;
+  }
+  #close-last {
+    right: -13%;
+  }
+  .lightbox-image {
+    width: 95%;
+  }
+  .left {
+    left: 0%;
+  }
+  .right {
+    right: 0%;
+  }
+}
